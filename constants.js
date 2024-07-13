@@ -114,6 +114,15 @@ export const PROJECTS = [
     tech: ["react", "firebase", "javascript", "css"],
   },
   {
+    name: "AllHouse",
+    image: "/projects/AllHouse.png",
+    blurImage: "/projects/blur/tesla-blur.webp",
+    description: "AllHouse Estate Agent App 🚀",
+    gradient: ["#3cc5d7", "#47d794"],
+    url: "#",
+    tech: ["react", "graphql", "typescript", "firebase", "redux", "css"],
+  },
+  {
     name: "Zindabhag",
     image: "/projects/ZB.jpeg",
     blurImage: "/projects/blur/medium-blur.webp",
@@ -140,6 +149,33 @@ export const PROJECTS = [
     gradient: ["#142D46", "#2E4964"],
     url: "https://lift-off-client-demo.netlify.app/",
     tech: ["react", "graphql", "typescript", "chakra-ui"],
+  },
+  {
+    name: "NodeJS Social Backend",
+    image: "/projects/Node.png",
+    blurImage: "/projects/blur/medium-blur.webp",
+    description: "A Complex Relational Backend  📰",
+    gradient: ["#12063b", "#09555c"],
+    url: "https://node-postgresql-q54m.onrender.com/docs/",
+    tech: ["expressjs", "nodejs", "postgresql", "prisma", "swagger"],
+  },
+  {
+    name: "Sharyng.ai",
+    image: "/projects/Sharyng.png",
+    blurImage: "/projects/blur/tesla-blur.webp",
+    description: "A React Native App to search image by face scan 🚀",
+    gradient: ["#e6220c", "#ffad5c"],
+    url: "/",
+    tech: ["react", "firebase", "javascript", "css"],
+  },
+  {
+    name: "Job Finder App",
+    image: "/projects/JobApp.jpg",
+    blurImage: "/projects/blur/airbnb-blur.webp",
+    description: "A React Native App to search jobs using RapidAPI 🚀",
+    gradient: ["#d8e547", "#56d388"],
+    url: "/",
+    tech: ["react", "typescript", "css", "styledcomponents"],
   },
 ];
 
@@ -170,7 +206,7 @@ export const WORK_CONTENTS = {
         "During my internship, I engaged with a dynamic range of technologies, including TypeScript, Next.js, and React Native. I gained practical experience across multiple fronts and contributed to projects involving seamless user experiences spanning various platforms.",
       content: (
         <div className="h-full w-full flex items-center justify-center text-white px-4">
-          Frontend Engineer Intern
+          Intern
         </div>
       ),
     },
