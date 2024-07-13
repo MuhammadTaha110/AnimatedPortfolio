@@ -3,8 +3,7 @@ export const METADATA = {
   title: "Portfolio | M Babar Waseem",
   description:
     "M Babar Waseem is a passionate Full Stack Engineer, dedicated to crafting aesthetic and modern apps that captivate and engage users.",
-  siteUrl: "https://www.shubhporwal.me/",
-  twitterHandle: "@shubh731",
+  siteUrl: "https://mbabarwaseem.vercel.app/",
   keywords: [
     "M Babar Waseem",
     "Frontend Engineer",
@@ -15,8 +14,6 @@ export const METADATA = {
     "Devfolio",
     "Folio",
   ].join(", "),
-  image:
-    "https://res.cloudinary.com/dywdhyojt/image/upload/v1690572126/preview.png",
   language: "English",
   themeColor: "#000000",
 };
@@ -112,7 +109,6 @@ export const PROJECTS = [
     image: "/projects/HBD.png",
     blurImage: "/projects/blur/tesla-blur.webp",
     description: "A React Native App for Booking Hotels 🚀",
-    // 
     gradient: ["#62cff4", "#2c67f2"],
     url: "https://play.google.com/store/apps/details?id=com.hotelsbyday.app&hl=en&pli=1",
     tech: ["react", "firebase", "javascript", "css"],
