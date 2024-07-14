@@ -171,8 +171,17 @@ export const PROJECTS = [
     blurImage: "/projects/blur/tesla-blur.webp",
     description: "AllHouse Estate Agent App 🚀",
     gradient: ["#3cc5d7", "#47d794"],
-    url: "#",
+    url: "/",
     tech: ["react", "graphql", "typescript", "firebase", "redux", "css"],
+  },
+  {
+    name: "Pound App",
+    image: "/projects/Pound.png",
+    blurImage: "/projects/blur/airbnb-blur.webp",
+    description: "A Pound Character Game App UI 🚀",
+    gradient: ["#233329", "#63d471"],
+    url: "/",
+    tech: ["react", "typescript", "redux", "css"],
   },
   {
     name: "Zindabhag",
