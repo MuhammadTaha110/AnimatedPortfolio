@@ -106,6 +106,23 @@ export const PROJECTS = [
     tech: ["mongodb", "expressjs", "react", "nodejs", "tailwindcss", "shadcn"],
   },
   {
+    name: "Swift Stack",
+    image: "/projects/SwiftStack.png",
+    blurImage: "/projects/blur/medium-blur.webp",
+    description: "A Full Stack Web Application for Deployments 🚀",
+    gradient: ["#5efce8", "#736efe"],
+    url: "https://www.linkedin.com/feed/update/urn:li:activity:7167076640944996353/",
+    tech: [
+      "mongodb",
+      "expressjs",
+      "react",
+      "nodejs",
+      "redis",
+      "amplify",
+      "shadcn",
+    ],
+  },
+  {
     name: "Chat App",
     image: "/projects/ChatApp.png",
     blurImage: "/projects/blur/medium-blur.webp",
