@@ -90,6 +90,23 @@ const Skills = () => {
               ))}
             </div>
           </div>
+          <div className="mt-10">
+            <h3 className="uppercase tracking-widest text-gray-light-2 font-medium text-base mb-4 staggered-reveal">
+              AI AGENTS
+            </h3>
+            <div className="flex flex-wrap gap-6 transform-gpu staggered-reveal">
+              {SKILLS.aiAgents.map((agent) => (
+                <Image
+                  key={agent}
+                  src={`/skills/${agent}.svg`}
+                  alt={agent}
+                  width={50}
+                  height={50}
+                />
+              ))}
+            </div>
+          </div>
+
           <div className="flex flex-wrap mt-10">
             <div className="mr-16 xs:mr-20 mb-6 staggered-reveal">
               <h3 className="uppercase tracking-widest text-gray-light-2 font-medium text-base mb-4">

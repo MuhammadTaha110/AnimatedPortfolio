@@ -92,10 +92,20 @@ export const SKILLS = {
     "chakra-ui",
   ],
   databases: ["mysql", "postgresql", "mongodb", "redis"],
+  aiAgents: ["chatgpt", "gemini", "claude"],
   other: ["git", "sanity-io"],
 };
 
 export const PROJECTS = [
+  {
+    name: "Realtime Collaborative Editor",
+    image: "/projects/Collaborative-Editorrr.png",
+    blurImage: "/projects/blur/airbnb-blur.webp",
+    description: "An Advance Realtime Docs Collaboration tool 🚀",
+    gradient: ["#09111f", "#141d2e"],
+    url: "https://realtime-collaborative-editor.vercel.app/",
+    tech: ["nextjs", "clerk", "sentry", "liveblock", "tailwindcss"],
+  },
   {
     name: "E Menu System",
     image: "/projects/EMenuSystem.png",
