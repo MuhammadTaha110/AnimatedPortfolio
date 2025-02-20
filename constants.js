@@ -283,6 +283,29 @@ export const WORK_CONTENTS = {
     },
   ],
 
+  FORMATY: [
+    {
+      title: "Formaty",
+      description:
+        "A product aim to solve the challenges in academic writing",
+      content: (
+        <div className="h-full w-full flex items-center justify-center text-white px-4">
+          Building seamless and scalable digital experiences.
+        </div>
+      ),
+    },
+    {
+      title: "Full Stack Web Development",
+      description:
+        "As a Software Engineer (Contract) from May 2023, I have been responsible for designing, developing, and optimizing various APIs and enhancing frontend performance to deliver a seamless user experience. My work primarily revolves around backend development, but I have also contributed to frontend improvements where necessary.",
+      content: (
+        <div className="h-full w-full flex items-center justify-center text-white px-4">
+          Software Engineer – Contract
+        </div>
+      ),
+    },
+  ],
+
   SHARYNG: [
     {
       title: "Sharyng.ai",

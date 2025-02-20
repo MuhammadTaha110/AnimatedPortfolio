@@ -21,6 +21,16 @@ const Work = ({ isDesktop }) => {
         ),
       },
       {
+        title: "Formaty",
+        value: "Formaty",
+        content: (
+          <StickyScroll
+            isDesktop={isDesktop}
+            contentItems={WORK_CONTENTS.FORMATY}
+          />
+        ),
+      },
+      {
         title: "Sharyng",
         value: "Sharyng",
         content: (
@@ -30,16 +40,6 @@ const Work = ({ isDesktop }) => {
           />
         ),
       },
-      // {
-      //   title: "Spacenos",
-      //   value: "spacenos",
-      //   content: (
-      //     <StickyScroll
-      //       isDesktop={isDesktop}
-      //       contentItems={WORK_CONTENTS.SPACENOS}
-      //     />
-      //   ),
-      // },
     ],
     [isDesktop]
   );
