@@ -12,7 +12,7 @@ const App = ({ Component, pageProps }) => {
         className={`${calibre.variable} font-sans ${jetbrains_mono.variable} font-mono`}
       >
         <Component {...pageProps} />
-        <GoogleAnalytics gaId={GTAG} />
+        <GoogleAnalytics gaId="GTM-59XN3PF4" />
       </main>
     </>
   );
