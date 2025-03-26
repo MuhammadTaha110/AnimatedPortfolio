@@ -98,48 +98,34 @@ export const SKILLS = {
 
 export const PROJECTS = [
   {
-    name: "Realtime Collaborative Editor",
-    image: "/projects/Collaborative-Editorrr.png",
-    blurImage: "/projects/blur/airbnb-blur.webp",
-    description: "An Advance Realtime Docs Collaboration tool 🚀",
-    gradient: ["#09111f", "#141d2e"],
-    url: "https://realtime-collaborative-editor.vercel.app/",
-    tech: ["nextjs", "clerk", "sentry", "liveblock", "tailwindcss"],
-  },
-  {
-    name: "E Menu System",
-    image: "/projects/EMenuSystem.png",
-    blurImage: "/projects/blur/airbnb-blur.webp",
-    description: "Advance QR Based E Menu Project 🚀",
-    gradient: ["#662d8c", "#ed1e79"],
-    url: "https://fyp-4pfn.onrender.com/",
-    tech: ["mongodb", "expressjs", "react", "nodejs", "tailwindcss", "shadcn"],
-  },
-  {
-    name: "Swift Stack",
-    image: "/projects/SwiftStack.png",
+    name: "Site Visit App",
+    image: "/projects/SiteVisit.png",
     blurImage: "/projects/blur/medium-blur.webp",
-    description: "A Full Stack Web Application for Deployments 🚀",
-    gradient: ["#5efce8", "#736efe"],
-    url: "https://www.linkedin.com/feed/update/urn:li:activity:7167076640944996353/",
-    tech: [
-      "mongodb",
-      "expressjs",
-      "react",
-      "nodejs",
-      "redis",
-      "amplify",
-      "shadcn",
-    ],
+    description:
+      "A site visit system for streamlined job tracking, management, status updates, and engineer reporting with integrated mapping. 🚀",
+    gradient: ["#bf3a3b", "#030303"],
+    url: "https://expo.dev/artifacts/eas/nzsT2bFNYymtow3FvdatWt.apk",
+    tech: ["expo", "typescript", "azure", "react"],
   },
   {
-    name: "Chat App",
-    image: "/projects/ChatApp.png",
+    name: "The Andria",
+    image: "/projects/Andria.png",
     blurImage: "/projects/blur/medium-blur.webp",
-    description: "Advance and Scalable Chat App Using AES Encryption 🚀",
-    gradient: ["#F14658", "#DC2537"],
-    url: "https://aes-chat-app.vercel.app/",
-    tech: ["nextjs", "tailwindcss", "redis", "pusher"],
+    description:
+      "Unlock AI-powered personalized insights, programs, and tools to achieve your goals. 🚀",
+    gradient: ["#0077b6", "#aad2e6"],
+    url: "https://drive.google.com/drive/folders/1gzThyf3pzmkD1uNKU8bFGl8G1Gn-oupu",
+    tech: ["react", "firebase", "typescript", "claude", "redux"],
+  },
+  {
+    name: "Cool People Network",
+    image: "/projects/CPN.png",
+    blurImage: "/projects/blur/medium-blur.webp",
+    description:
+      "Cool People Network is the first video-streaming podcast community, serving as both a marketing tool and an ad-free streaming platform. 🚀",
+    gradient: ["#070707", "#9e140d"],
+    url: "https://play.google.com/store/apps/details?id=com.cpnpodcast",
+    tech: ["react", "typescript", "oneSignal", "redux"],
   },
   {
     name: "Hotels By Day",
@@ -203,6 +189,68 @@ export const PROJECTS = [
     tech: ["typescript", "react", "nodejs", "tailwindcss", "mysql"],
   },
   {
+    name: "Digital Academy",
+    image: "/projects/DigitalAcademy.png",
+    blurImage: "/projects/blur/medium-blur.webp",
+    description: "Advance Learning App, With Microsoft AD 📰",
+    gradient: ["#4c99d4", "#cca362"],
+    url: "https://digital-academy.services.technipfmc.com/",
+    tech: ["typescript", "react", "mui", "azure"],
+  },
+  {
+    name: "Formaty",
+    image: "/projects/Formaty.png",
+    blurImage: "/projects/blur/medium-blur.webp",
+    description: "Formaty, Your all in one Research Solution 🚀",
+    gradient: ["#1d3a8a", "#000000"],
+    url: "https://www.formaty.co/",
+    tech: ["typescript", "nextjs", "mongodb", "expressjs", "tailwindcss"],
+  },
+  {
+    name: "Realtime Collaborative Editor",
+    image: "/projects/Collaborative-Editorrr.png",
+    blurImage: "/projects/blur/airbnb-blur.webp",
+    description: "An Advance Realtime Docs Collaboration tool 🚀",
+    gradient: ["#09111f", "#141d2e"],
+    url: "https://realtime-collaborative-editor.vercel.app/",
+    tech: ["nextjs", "clerk", "sentry", "liveblock", "tailwindcss"],
+  },
+  {
+    name: "E Menu System",
+    image: "/projects/EMenuSystem.png",
+    blurImage: "/projects/blur/airbnb-blur.webp",
+    description: "Advance QR Based E Menu Project 🚀",
+    gradient: ["#662d8c", "#ed1e79"],
+    url: "https://fyp-4pfn.onrender.com/",
+    tech: ["mongodb", "expressjs", "react", "nodejs", "tailwindcss", "shadcn"],
+  },
+  {
+    name: "Swift Stack",
+    image: "/projects/SwiftStack.png",
+    blurImage: "/projects/blur/medium-blur.webp",
+    description: "A Full Stack Web Application for Deployments 🚀",
+    gradient: ["#5efce8", "#736efe"],
+    url: "https://www.linkedin.com/feed/update/urn:li:activity:7167076640944996353/",
+    tech: [
+      "mongodb",
+      "expressjs",
+      "react",
+      "nodejs",
+      "redis",
+      "amplify",
+      "shadcn",
+    ],
+  },
+  {
+    name: "Chat App",
+    image: "/projects/ChatApp.png",
+    blurImage: "/projects/blur/medium-blur.webp",
+    description: "Advance and Scalable Chat App Using AES Encryption 🚀",
+    gradient: ["#F14658", "#DC2537"],
+    url: "https://aes-chat-app.vercel.app/",
+    tech: ["nextjs", "tailwindcss", "redis", "pusher"],
+  },
+  {
     name: "NextJS Object Detection",
     image: "/projects/ObjectDetection.png",
     blurImage: "/projects/blur/airbnb-blur.webp",
@@ -262,7 +310,7 @@ export const WORK_CONTENTS = {
       ),
     },
     {
-      title: "Frontend Development",
+      title: "FullStack Development",
       description:
         "As an Associate Software Engineer, I focus on frontend development using TypeScript, React, GraphQL, Next.js, and React Native. My specialization in clean and maintainable code ensures optimal user experiences. With expertise in TypeScript, I contribute to robust codebases and efficient data management using MongoDB.",
       content: (
@@ -286,8 +334,7 @@ export const WORK_CONTENTS = {
   FORMATY: [
     {
       title: "Formaty",
-      description:
-        "A product aim to solve the challenges in academic writing",
+      description: "A product aim to solve the challenges in academic writing",
       content: (
         <div className="h-full w-full flex items-center justify-center text-white px-4">
           Building seamless and scalable digital experiences.
