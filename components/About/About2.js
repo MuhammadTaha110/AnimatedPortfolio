@@ -41,20 +41,12 @@ const About2 = ({ clientHeight }) => {
           ref={quoteRef}
           className="font-medium text-[2.70rem] md:text-6xl lg:text-[4rem] text-center"
         >
-          My meticulous approach ensures the{" "}
-          <span
-            className="about-3 font-bold"
-            style={{
-              background:
-                "linear-gradient(90deg, #ffffff 0%, #ffffff 50%, #8b31ff 51%, #7000ff 102%)",
-              backgroundSize: "200% 100%",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-          >
-            highest quality
+          Focused on clean component architecture, measurable performance gains,
+          and secure API/database design — recognized with{" "}
+          <span className="about-3 font-bold text-gradient-interactive">
+            Best FYP Idea
           </span>{" "}
-          in all my work.
+          at Zab-E-Fest 2026 for TestHub.
         </h1>
       </div>
     </section>

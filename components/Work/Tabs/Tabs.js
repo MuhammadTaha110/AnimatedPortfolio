@@ -17,14 +17,14 @@ const Tab = ({ index, tab, activeTab, handleOnClick, setIsHovering }) => {
         <motion.div
           layoutId="clickedbutton"
           transition={{ type: "spring", bounce: 0.3, duration: 0.7 }}
-          className="absolute inset-0 bg-gray-dark-2 rounded-full"
+          className="absolute inset-0 rounded-full bg-purple/15 dark:bg-gray-dark-2"
         />
       )}
 
       <span
         className={cn(
-          "relative text-white top-[3px] link",
-          tab.value !== activeTab.value && "hover:text-gray-light-3"
+          "relative text-gray-dark-1 dark:text-white top-[3px] link",
+          tab.value !== activeTab.value && "hover:text-gray-dark-3 dark:hover:text-gray-light-3"
         )}
       >
         {tab.title}

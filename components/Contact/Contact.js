@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Filter from "bad-words";
 import toast, { Toaster } from "react-hot-toast";
-import Fade from "react-reveal/Fade";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import mail from "./mailer";
@@ -38,7 +37,7 @@ const success = () =>
 const Contact = () => {
   const initialState = {
     name: "",
-    email: "mbabarwaseem@gmail.com",
+    email: "",
     message: "",
     username: "",
   };
@@ -50,7 +49,6 @@ const Contact = () => {
 
   const handleChange = ({ target }) => {
     const { id, value } = target;
-    value.length === 0 ? setIsSending(false) : setIsSending(true);
     setFormData((prevVal) => {
       if (
         value.trim() !== prevVal[id] &&
@@ -70,20 +68,24 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const { name, email, message, username } = {
-      name: formData.name,
-      email: formData.email,
+    const { name, email, message } = {
+      name: formData.username,
+      email: formData.name,
       message: formData.message,
-      username: formData.username,
     };
 
-    if (name === "" || email === "" || message === "" || username === "") {
+    if (name === "" || email === "" || message === "") {
       empty();
       return setMailerResponse("empty");
     }
 
+    if (!email.includes("@")) {
+      toast.error("Please enter a valid email address", { id: "error" });
+      return setMailerResponse("error");
+    }
+
     setIsSending(true);
-    mail({ name, email, message, username })
+    mail({ name, email, message })
       .then((res) => {
         if (res.status === 200) {
           setMailerResponse("success");
@@ -94,9 +96,19 @@ const Contact = () => {
       })
       .catch((err) => {
         setMailerResponse("error");
-        console.error(err);
+        console.error("EmailJS error:", err);
+        toast.error(err?.text || "Error sending your message", { id: "error" });
+      })
+      .finally(() => {
+        setIsSending(false);
       });
   };
+
+  useEffect(() => {
+    if (mailerResponse === "success") {
+      success();
+    }
+  }, [mailerResponse]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -198,18 +210,18 @@ const Contact = () => {
             {
               "--text-opacity": 0,
               "--border-radius": 0,
-              "--left-wing-background": "#9f55ff",
-              "--right-wing-background": "#9f55ff",
+              "--left-wing-background": "#5a5eff",
+              "--right-wing-background": "#5a5eff",
               duration: 0.11,
             },
             {
-              "--left-wing-background": "#8b31ff",
-              "--right-wing-background": "#8b31ff",
+              "--left-wing-background": "#3136ff",
+              "--right-wing-background": "#3136ff",
               duration: 0.14,
             },
             {
-              "--left-body-background": "#9f55ff",
-              "--right-body-background": "#9f55ff",
+              "--left-body-background": "#5a5eff",
+              "--right-body-background": "#5a5eff",
               duration: 0.25,
               delay: 0.1,
             },
@@ -235,30 +247,35 @@ const Contact = () => {
   }, [buttonElementRef]);
 
   useEffect(() => {
-    const tl = gsap.timeline({ defaults: { ease: "none" } });
+    const ctx = gsap.context(() => {
+      const elements = sectionRef.current.querySelectorAll(".staggered-reveal");
 
-    tl.from(
-      sectionRef.current.querySelectorAll(".staggered-reveal"),
-      { opacity: 0, duration: 0.5, stagger: 0.5 },
-      "<"
-    );
+      gsap.fromTo(
+        elements,
+        { opacity: 0, y: 24 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.55,
+          stagger: 0.12,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 88%",
+            once: true,
+          },
+        }
+      );
+    }, sectionRef);
 
-    ScrollTrigger.create({
-      trigger: sectionRef.current.querySelector(".contact-wrapper"),
-      start: "100px bottom",
-      end: "center center",
-      scrub: 0,
-      animation: tl,
-    });
-
-    return () => tl.kill();
+    return () => ctx.revert();
   }, [sectionRef]);
 
   return (
     <section
       ref={sectionRef}
       id={MENULINKS[4].ref}
-      className="mt-30 w-full relative select-none bg-black pt-20 sm:pt-10 md:pt-5 lg:pt-1 pb-20"
+      className="relative mt-30 w-full select-none bg-gray-light-1 pb-24 pt-20 transition-colors duration-300 dark:bg-black sm:pt-10 md:pt-8"
     >
       <div>
         <Toaster toastOptions={toastOptions} />
@@ -266,50 +283,49 @@ const Contact = () => {
       <div className="section-container flex flex-col justify-center">
         <div className="flex flex-col contact-wrapper">
           <div className="flex flex-col">
-            <p className="uppercase tracking-widest text-gray-light-1 staggered-reveal">
+            <p className="uppercase tracking-widest text-gray-dark-3 dark:text-gray-light-1 staggered-reveal">
               CONTACT
             </p>
             <h1 className="text-6xl mt-2 font-medium text-gradient w-fit staggered-reveal">
               Contact
             </h1>
           </div>
-          <h2 className="text-[1.65rem] font-medium md:max-w-lg w-full mt-2 staggered-reveal">
-            Get In Touch.{" "}
+          <h2 className="text-[1.65rem] font-medium md:max-w-2xl w-full mt-2 staggered-reveal">
+            Karachi, Pakistan · +92 330 2458757 · mtahatalib110@gmail.com
           </h2>
         </div>
 
-        <form className="pt-10 sm:mx-auto sm:w-[30rem] md:w-[35rem] staggered-reveal">
-          <Fade bottom distance={"4rem"}>
+        <form className="staggered-reveal mx-auto w-full max-w-xl pt-10 sm:max-w-2xl">
             <div className="relative">
               <input
                 type="text"
                 id="username"
                 autoComplete="off"
-                className="block w-full h-12 sm:h-14 px-4 text-xl sm:text-2xl font-mono outline-none border-2 border-purple bg-transparent rounded-[0.6rem] transition-all duration-200"
+                className="block h-12 w-full rounded-[0.6rem] border-2 border-purple bg-white/80 px-4 font-mono text-xl text-gray-dark-1 outline-none transition-all duration-200 dark:bg-gray-dark-2/80 dark:text-white sm:h-14 sm:text-2xl"
                 value={formData.username}
                 onChange={handleChange}
                 required
               />
               <label
                 htmlFor="username"
-                className="absolute top-0 left-0 h-full flex items-center pl-4 text-lg font-mono transform transition-all"
+                className="absolute left-0 top-0 flex h-full transform items-center pl-4 font-mono text-lg text-gray-dark-3 transition-all dark:text-gray-light-2"
               >
                 Name
               </label>
             </div>
             <div className="relative mt-14">
               <input
-                type="text"
+                type="email"
                 id="name"
                 autoComplete="off"
-                className="block w-full h-12 sm:h-14 px-4 text-xl sm:text-2xl font-mono outline-none border-2 border-purple bg-transparent rounded-[0.6rem] transition-all duration-200"
+                className="block h-12 w-full rounded-[0.6rem] border-2 border-purple bg-white/80 px-4 font-mono text-xl text-gray-dark-1 outline-none transition-all duration-200 dark:bg-gray-dark-2/80 dark:text-white sm:h-14 sm:text-2xl"
                 value={formData.name}
                 onChange={handleChange}
                 required
               />
               <label
                 htmlFor="name"
-                className="absolute top-0 left-0 h-full flex items-center pl-4 text-lg font-mono transform transition-all"
+                className="absolute left-0 top-0 flex h-full transform items-center pl-4 font-mono text-lg text-gray-dark-3 transition-all dark:text-gray-light-2"
               >
                 Email
               </label>
@@ -318,39 +334,32 @@ const Contact = () => {
             <div className="relative mt-14">
               <textarea
                 id="message"
-                className="block w-full h-auto min-h-[10rem] max-h-[20rem] sm:h-14 py-2 px-4 text-xl sm:text-2xl font-mono outline-none border-2 border-purple bg-transparent rounded-[0.6rem] transition-all duration-200"
+                className="block h-auto min-h-[10rem] max-h-[20rem] w-full rounded-[0.6rem] border-2 border-purple bg-white/80 px-4 py-2 font-mono text-xl text-gray-dark-1 outline-none transition-all duration-200 dark:bg-gray-dark-2/80 dark:text-white sm:text-2xl"
                 value={formData.message}
                 onChange={handleChange}
                 required
               />
               <label
                 htmlFor="message"
-                className="absolute top-0 left-0 h-14 flex items-center pl-4 text-lg font-mono transform transition-all"
+                className="absolute left-0 top-0 flex h-14 transform items-center pl-4 font-mono text-lg text-gray-dark-3 transition-all dark:text-gray-light-2"
               >
                 Message
               </label>
             </div>
-          </Fade>
 
-          {mailerResponse !== "not initiated" &&
-            (mailerResponse === "success" ? (
-              <div className="hidden">{success()}</div>
-            ) : (
-              <div className="hidden">{error()}</div>
-            ))}
+          {mailerResponse === "success" ? (
+              <div className="hidden" aria-hidden="true" />
+            ) : null}
         </form>
-        <div className="mt-9 mx-auto link">
+        <div className="mx-auto mt-9 link">
           <button
             ref={buttonElementRef}
             className={styles.button}
             disabled={
-              (!formData.name.includes("@") &&
-                !formData.name.endsWith(".com")) ||
+              isSending ||
+              formData.username === "" ||
               formData.name === "" ||
-              formData.email === "" ||
               formData.message === ""
-                ? true
-                : false
             }
             onClick={handleSubmit}
           >
@@ -381,14 +390,21 @@ const Contact = () => {
 
         input:hover,
         textarea:hover {
-          box-shadow: 0 0 0.3rem #7000ff;
+          box-shadow: 0 0 0.3rem #3136ff;
         }
 
         input:active,
         input:focus,
         textarea:active,
         textarea:focus {
-          box-shadow: 0 0 0.3rem #000000;
+          box-shadow: 0 0 0.3rem #3136ff;
+        }
+
+        .dark input:active,
+        .dark input:focus,
+        .dark textarea:active,
+        .dark textarea:focus {
+          box-shadow: 0 0 0.3rem #5a5eff;
         }
 
         input:focus + label,

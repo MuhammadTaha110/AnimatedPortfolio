@@ -1,27 +1,26 @@
 .projectTile {
-    transform-style: preserve-3d;
-    transform: perspective(1000px);
+  transform-style: preserve-3d;
+}
 
-    img {
-        object-fit: cover;
-    }
+.projectImageWrap {
+  pointer-events: none;
+  z-index: 0;
 }
 
 .projectImage {
-    @apply absolute top-0 rounded-xl shadow-xl;
-
-    width: 17rem !important;
-    transform: rotate(-22.5deg);
-    height: unset !important;
-    min-width: unset !important;
-    max-height: unset !important;
-    object-fit: contain !important;
-    left: unset !important;
-    right: 2rem !important;
-    bottom: unset !important;
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  width: 17rem;
+  height: auto;
+  max-height: calc(100% - 3rem);
+  transform: rotate(-22.5deg);
+  object-fit: contain;
+  border-radius: 0.75rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
 .techIcons {
-    transform: rotate(-22.5deg) translateZ(2rem);
-    will-change: transform;
+  transform: rotate(-22.5deg) translateZ(2rem);
+  will-change: transform;
 }

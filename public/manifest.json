@@ -1,7 +1,7 @@
 {
-  "name": "Portfolio | M Babar Waseem",
-  "short_name": "M Babar Waseem",
-  "description": "M Babar Waseem's Portfolio Website.",
+  "name": "Portfolio | Muhammad Taha Talib",
+  "short_name": "Muhammad Taha Talib",
+  "description": "Muhammad Taha Talib's Portfolio Website.",
   "icons": [
     {
       "src": "/icon-192x192.png",
@@ -25,8 +25,8 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#7000FF",
-  "background_color": "#000000",
+  "theme_color": "#3136ff",
+  "background_color": "#3136ff",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait"

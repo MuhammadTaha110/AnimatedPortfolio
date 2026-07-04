@@ -92,15 +92,15 @@ const Projects = ({ isDesktop, clientHeight }) => {
           className="flex flex-col inner-container transform-gpu"
           ref={sectionTitleRef}
         >
-          <p className="uppercase tracking-widest text-gray-light-1 staggered-reveal">
+          <p className="uppercase tracking-widest text-gray-dark-3 dark:text-gray-light-1 staggered-reveal">
             PROJECTS
           </p>
           <h1 className="text-6xl mt-2 font-medium text-gradient w-fit staggered-reveal">
             My Projects
           </h1>
-          <h2 className="text-[1.65rem] font-medium md:max-w-lg max-w-sm mt-2 staggered-reveal">
-            Some things I&apos;ve built with love, expertise and a pinch of
-            magical ingredients.{" "}
+          <h2 className="text-[1.65rem] font-medium md:max-w-2xl w-full mt-2 staggered-reveal">
+            TestHub, ExBoard AI, Meerento, Medtrixo, and Do Something Else —
+            SaaS products built end-to-end from architecture to production.{" "}
           </h2>
         </div>
         <div

@@ -28,6 +28,11 @@ const Meta = () => (
     <meta property="twitter:url" content={METADATA.siteUrl} />
 
     <link
+      rel="icon"
+      type="image/x-icon"
+      href="/favicons/favicon.ico"
+    />
+    <link
       rel="apple-touch-icon"
       sizes="180x180"
       href="/favicons/apple-touch-icon.png"
@@ -44,7 +49,7 @@ const Meta = () => (
       sizes="16x16"
       href="/favicons/favicon-16x16.png"
     />
-    <meta name="msapplication-TileColor" content="#7000FF" />
+    <meta name="msapplication-TileColor" content="#3136ff" />
     <link rel="manifest" href="/manifest.json" />
   </Head>
 );

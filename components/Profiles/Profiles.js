@@ -2,11 +2,14 @@ import { SOCIAL_LINKS } from "../../constants";
 import { Icon } from "@/components/Icons";
 import styles from "./Profiles.module.scss";
 
+const HEADER_PROFILE_LINKS = SOCIAL_LINKS.filter(
+  ({ name }) => name !== "instagram"
+);
+
 const Profiles = () => {
   return (
     <div className={styles.profile}>
-      {SOCIAL_LINKS &&
-        SOCIAL_LINKS.map(({ name, url }) => (
+      {HEADER_PROFILE_LINKS.map(({ name, url }) => (
           <a
             href={url}
             key={name}

@@ -65,7 +65,7 @@ const Hero = () => {
     <section
       ref={sectionRef}
       id={MENULINKS[0].ref}
-      className="w-full flex md:items-center py-8 2xl:container mx-auto xl:px-20 md:px-12 px-4 min-h-screen relative mb-24"
+      className="relative mx-auto mb-24 flex min-h-screen w-full px-4 py-8 md:items-center md:px-12 xl:px-20 2xl:container"
       style={{ opacity: 0 }}
     >
       <style global jsx>
@@ -75,23 +75,28 @@ const Hero = () => {
           }
         `}
       </style>
-      <div className="flex flex-col pt-40 md:pt-0 select-none">
+      <div className="flex select-none flex-col pt-40 md:pt-0">
         <h5
-          className={`${styles.intro} font-mono font-medium text-indigo-light staggered-reveal`}
+          className={`${styles.intro} staggered-reveal font-mono font-medium text-indigo-light`}
         >
-          Hi, my name is
+          Hi, I&apos;m
         </h5>
-        <h1 className={`${styles.heroName} text-white text-6xl font-semibold`}>
-          <span className="staggered-reveal"> M {""}</span>
+        <h1
+          className={`${styles.heroName} text-6xl font-semibold text-gray-dark-1 dark:text-white`}
+        >
+          <span className="staggered-reveal">Muhammad </span>
           <span className={`relative ${styles.emphasize} staggered-reveal`}>
-            Babar
+            Taha
           </span>
-          <span className="staggered-reveal"> Waseem</span>
+          <span className="staggered-reveal"> Talib</span>
         </h1>
+        <p className="staggered-reveal -mt-4 font-mono text-xl text-indigo-light">
+          Software Engineer
+        </p>
         <p>
           <span
             ref={typedElementRef}
-            className="staggered-reveal text-3xl text-gray-light-3 font-mono leading-relaxed"
+            className="staggered-reveal font-mono text-3xl leading-relaxed text-gray-dark-3 dark:text-gray-light-3"
           />
         </p>
         <div className="staggered-reveal">
@@ -104,7 +109,7 @@ const Hero = () => {
         </div>
       </div>
       <div
-        className="absolute invisible w-4/12 bottom-1.5 lg:visible lg:right-12 2xl:right-16"
+        className="invisible absolute bottom-1.5 w-4/12 lg:visible lg:right-12 2xl:right-16"
         ref={lottieRef}
       />
     </section>

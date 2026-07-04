@@ -3,7 +3,6 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Loader from "@/components/Loader/Loader";
 import Header from "@/components/Header/Header";
-import Menu from "@/components/Header/Menu/Menu";
 import ProgressIndicator from "@/components/ProgressIndicator/ProgressIndicator";
 import Cursor from "@/components/Cursor/Cursor";
 import Hero from "@/components/Hero/Hero";
@@ -29,8 +28,21 @@ export default function Home() {
     setTimeout(() => {
       setIsLoading(false);
     }, 1600);
-
   }, []);
+
+  useEffect(() => {
+    if (isLoading) {
+      document.documentElement.classList.add("dark");
+      return;
+    }
+
+    const storedTheme = localStorage.getItem("portfolio-theme");
+    if (storedTheme === "light") {
+      document.documentElement.classList.remove("dark");
+    } else {
+      document.documentElement.classList.add("dark");
+    }
+  }, [isLoading]);
 
   useEffect(() => {
     const { innerWidth, innerHeight, orientation, history } = window;
@@ -51,15 +63,13 @@ export default function Home() {
         <Loader />
       ) : (
         <>
-          <Header>
-            <Menu />
-          </Header>
+          <Header />
           <ProgressIndicator />
           <Cursor isDesktop={isDesktop} />
           <main className="flex flex-col">
             <div
               role="img"
-              className="text-gray-light-1 opacity-10 sm:text-9xl xs:text-8xl inline-block -z-10 absolute rotate-90 right-0 md:top-52 xs:top-96"
+              className="text-gray-dark-1 dark:text-gray-light-1 opacity-10 sm:text-9xl xs:text-8xl inline-block -z-10 absolute rotate-90 right-0 md:top-52 xs:top-96"
             >
               DEV
             </div>

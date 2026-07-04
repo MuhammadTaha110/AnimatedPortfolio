@@ -1,6 +1,38 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { cn } from "@/utils/cn";
+
+const TOP_MARQUEE_ITEMS = [
+  { text: "Next.js", className: "text-white/70 dark:text-white/80" },
+  { text: "React", className: "text-indigo-light" },
+  { text: "TypeScript", className: "text-purple" },
+  { text: "Node.js", className: "text-green" },
+  { text: "PostgreSQL", className: "text-indigo-light" },
+  { text: "REST APIs", className: "text-white/60 dark:text-white/70" },
+];
+
+const BOTTOM_MARQUEE_ITEMS = [
+  { text: "Full-Stack Development", className: "text-purple" },
+  { text: "Software Architecture", className: "text-indigo-light" },
+  { text: "API Design", className: "text-green" },
+  { text: "Tailwind CSS", className: "text-indigo-light" },
+];
+
+const MarqueeLine = ({ items, repeats = 5 }) => (
+  <>
+    {Array.from({ length: repeats }).map((_, repeatIndex) =>
+      items.map((item, itemIndex) => (
+        <span
+          key={`${repeatIndex}-${itemIndex}-${item.text}`}
+          className={cn("mx-2", item.className)}
+        >
+          {item.text}
+        </span>
+      ))
+    )}
+  </>
+);
 
 const Collaboration = ({ clientHeight }) => {
   const sectionRef = useRef(null);
@@ -55,46 +87,29 @@ const Collaboration = ({ clientHeight }) => {
   }, [quoteRef, sectionRef]);
 
   return (
-    <section ref={sectionRef} className="w-full relative select-none my-40">
+    <section ref={sectionRef} className="relative my-40 w-full select-none">
       <div
         className={`${
           clientHeight > 650 ? "py-36" : "py-48"
         } section-container flex flex-col`}
       >
-        <p className="opacity-40 text-6xl sm:text-7xl font-semibold whitespace-nowrap ui-left transform-gpu">
-          {Array(5)
-            .fill(
-              " Software Engineering Problem Solving Software Architecture "
-            )
-            .reduce((str, el) => str.concat(el), "")}{" "}
+        <p className="ui-left transform-gpu whitespace-nowrap text-6xl font-semibold sm:text-7xl">
+          <MarqueeLine items={TOP_MARQUEE_ITEMS} />
         </p>
 
         <h1
           ref={quoteRef}
-          className="mt-6 md:mt-8 font-medium text-4xl md:text-5xl text-center"
+          className="mt-6 text-center text-4xl font-medium md:mt-8 md:text-5xl"
         >
           Interested in{" "}
-          <span
-            className="text-strong font-semibold"
-            style={{
-              background:
-                "linear-gradient(90deg, #ffffff 0%, #ffffff 50%, #8b31ff 51%, #7000ff 102%)",
-              backgroundSize: "200% 100%",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-          >
+          <span className="text-strong text-gradient-interactive font-semibold">
             Collaboration
           </span>
           ?
         </h1>
 
-        <p className="mt-6 md:mt-8 opacity-40 text-6xl sm:text-7xl font-semibold whitespace-nowrap ui-right transform-gpu">
-          {Array(5)
-            .fill(
-              " Agile Development Frontend Development React Native Development "
-            )
-            .reduce((str, el) => str.concat(el), "")}{" "}
+        <p className="ui-right mt-6 transform-gpu whitespace-nowrap text-6xl font-semibold sm:mt-8 sm:text-7xl">
+          <MarqueeLine items={BOTTOM_MARQUEE_ITEMS} />
         </p>
       </div>
     </section>

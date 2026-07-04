@@ -19,7 +19,7 @@ const SoundBar = () => {
 
   return (
     <div
-      className="soundBars link top-1 right-14 flex items-center justify-center"
+      className="soundBars link relative z-[300] flex size-6 shrink-0 items-center justify-center"
       onClick={togglePlayPause}
     >
       <span />

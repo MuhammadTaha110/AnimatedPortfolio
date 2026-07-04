@@ -1,7 +1,7 @@
 .button {
   --primary: #000000;
-  --primary-dark: #9f55ff;
-  --shadow: #{rgba(#9f55ff, 0.3)};
+  --primary-dark: #5a5eff;
+  --shadow: #{rgba(#3136ff, 0.3)};
   --text: #fff;
   --text-opacity: 1;
   --success: #eeecff;
@@ -60,9 +60,12 @@
   outline: none;
   background-clip: padding-box;
   border-radius: 0.4rem;
+  background-color: #fff;
   background-size: 220%;
-  outline: 2px solid theme("colors.indigo.dark");
-  color: var(--text);
+  outline: 2px solid theme("colors.purple");
+  color: theme("colors.purple");
+  --text: #{theme("colors.purple")};
+  --primary: #{theme("colors.purple")};
   transition: all 0.3s ease-in-out;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: transparent;
@@ -72,6 +75,20 @@
     background-position: 98%;
     color: #fff;
     box-shadow: 0 0 1rem theme("colors.indigo.dark");
+  }
+
+  :global(.dark) & {
+    background-color: transparent;
+    outline: 2px solid theme("colors.indigo.dark");
+    color: #fff;
+    --text: #fff;
+    --primary: #000000;
+
+    &:hover,
+    &:active {
+      color: #fff;
+      box-shadow: 0 0 1rem theme("colors.indigo.dark");
+    }
   }
 
   .plane,

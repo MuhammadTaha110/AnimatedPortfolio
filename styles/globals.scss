@@ -7,7 +7,7 @@
 *::before {
   padding: 0;
   margin: 0;
-  -webkit-tap-highlight-color: rgba(112, 0, 255, 0.05);
+  -webkit-tap-highlight-color: rgba(49, 54, 255, 0.05);
   cursor: none;
 }
 
@@ -39,7 +39,7 @@ html {
 
 body {
   box-sizing: border-box;
-  @apply bg-black text-white overflow-x-hidden;
+  @apply bg-gray-light-1 text-gray-dark-1 dark:bg-black dark:text-white overflow-x-hidden transition-colors duration-300;
 }
 
 ::-webkit-scrollbar {
@@ -51,7 +51,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(112, 0, 255, 0.75);
+  background: rgba(49, 54, 255, 0.75);
   opacity: 0.5;
   border-radius: 1rem;
   transition: all 0.2s;
@@ -89,202 +89,146 @@ input[type="checkbox"] {
   cursor: none !important;
 }
 
-.outer-menu {
-  .checkbox-toggle {
-    z-index: 2;
+.menu {
+  z-index: 150;
+  backface-visibility: hidden;
+  outline: 0.0625rem solid transparent;
 
-    &:checked {
-      + {
-        .hamburger {
-          > div {
-            transform: rotate(135deg);
-            &:before {
-              top: 0;
-              transform: rotate(90deg);
-            }
-            &:after {
-              top: 0;
-              transform: rotate(90deg);
-              opacity: 0;
-            }
-          }
-        }
-      }
-      ~ {
-        .menu {
-          pointer-events: auto;
-          visibility: visible !important;
-          > div {
-            transform: scale(1);
-            transition-duration: 0.75s;
-            > div {
-              opacity: 1;
-              transition: opacity 0.4s ease 0.4s;
-            }
-          }
-        }
-      }
-      &:hover {
-        + {
-          .hamburger {
-            > div {
-              transform: rotate(225deg);
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .hamburger {
-    z-index: 1;
+  > div {
+    width: 240vw;
+    height: 240vw;
+    transform: scale(0);
+    will-change: transform;
+    border-radius: 50%;
+    transition: all 0.4s ease;
     backface-visibility: hidden;
+    background: rgba(0, 0, 0, 0.8);
 
     > div {
-      height: 0.125rem;
-      transition: all 0.4s ease;
-      -webkit-box-pack: center;
+      max-width: 90vw;
+      transition: opacity 0.4s ease;
+    }
 
-      &:before,
-      &:after {
-        content: "";
-        z-index: 1;
-        position: absolute;
-        left: 0;
-        width: 100%;
-        top: -0.5rem;
-        height: 0.125rem;
-        background: inherit;
-        transition: all 0.4s ease;
-      }
-      &:after {
-        top: 0.5rem;
+    ul {
+      li {
+        a {
+          background-image: linear-gradient(
+            90deg,
+            #ffffff 0%,
+            #ffffff 50%,
+            theme("colors.purple") 51%,
+            theme("colors.indigo.dark") 100%
+          );
+          background-size: 200% 100%;
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+
+          &:hover {
+            background-position: 100% 0;
+          }
+        }
       }
     }
   }
 
-  .soundBars {
-    display: absolute;
-    height: 24px;
-    width: 24px;
+  &.is-open {
+    > div {
+      transform: scale(1);
+      transition-duration: 0.75s;
+    }
+  }
+}
+
+.soundBars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  height: 24px;
+  width: 24px;
+  border-radius: 100%;
+
+  span {
+    display: inline-block;
+    flex-shrink: 0;
+    background: linear-gradient(
+      to right,
+      theme("colors.indigo.light"),
+      theme("colors.indigo.dark")
+    );
+    margin: auto 1px 0;
+    height: 100%;
+    width: 2px;
+    transform: scaleY(0.99);
+    transform-origin: bottom;
+    box-shadow: 0 4px 0 rgba(255, 255, 255, 0.2);
+    transition: all 0.4s ease-in-out;
+
+    &:nth-child(1) {
+      transform: scaleY(0.8);
+    }
+    &:nth-child(2) {
+      transform: scaleY(0.6);
+    }
+    &:nth-child(4) {
+      transform: scaleY(0.4);
+    }
+  }
+
+  &.play > span {
+    animation: sound-bars-animation 2s infinite alternate-reverse;
+
+    &:nth-child(1) {
+      animation-delay: 0.4s;
+    }
+    &:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    &:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+    &:nth-child(4) {
+      animation-delay: 0.8s;
+    }
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    background: #fff;
     border-radius: 100%;
-
-    span {
-      background: linear-gradient(
-        to right,
-        theme("colors.indigo.light"),
-        theme("colors.indigo.dark")
-      );
-      margin: auto 1px 0;
-      height: 100%;
-      width: 2px;
-      transform: scaleY(0.99);
-      transform-origin: bottom;
-      box-shadow: 0 4px 0 rgba(255, 255, 255, 0.2);
-      transition: all 0.4s ease-in-out;
-
-      // Different height bars
-      &:nth-child(1) {
-        transform: scaleY(0.8);
-      }
-      &:nth-child(2) {
-        transform: scaleY(0.6);
-      }
-      &:nth-child(4) {
-        transform: scaleY(0.4);
-      }
-    }
-
-    &.play > span {
-      animation: sound-bars-animation 2s infinite alternate-reverse;
-
-      // Scatter animations
-      &:nth-child(1) {
-        animation-delay: 0.4s;
-      }
-      &:nth-child(2) {
-        animation-delay: 0.2s;
-      }
-      &:nth-child(3) {
-        animation-delay: 0.6s;
-      }
-      &:nth-child(4) {
-        animation-delay: 0.8s;
-      }
-    }
-
-    &:before {
-      content: "";
-      position: absolute;
-      opacity: 0;
-      height: 0;
-      width: 0;
-      background: #fff;
-      border-radius: 100%;
-      transition: all 0.2s ease-in-out;
-    }
+    transition: all 0.2s ease-in-out;
+  }
 
     &:hover {
       &:before {
-        width: calc(15% + 24px);
-        height: calc(50% + 24px);
+        width: 1.5rem;
+        height: 1.5rem;
         opacity: 1;
       }
 
-      > span {
-        background: #000;
-      }
+    > span {
+      background: #000;
     }
   }
+}
 
-  .menu {
-    backface-visibility: hidden;
-    outline: 0.0625rem solid transparent;
-    > div {
-      width: 240vw;
-      height: 240vw;
-      transform: scale(0);
-      will-change: transform;
-      border-radius: 50%;
-      transition: all 0.4s ease;
-      backface-visibility: hidden;
-      background: rgba(
-        0,
-        0,
-        0,
-        0.8
-      ); //check it out later when more text is on the background to change the opacity
-      // @supports not (backdrop-filter: blur(0.625rem)) {
-      //   background: rgba(0, 0, 0, 0.8);
-      // }
+.dark .soundBars:hover > span {
+  background: theme("colors.purple");
+}
 
-      > div {
-        max-width: 90vw;
-        transition: opacity 0.4s ease;
-      }
-      ul {
-        li {
-          a {
-            background: linear-gradient(
-              90deg,
-              #ffffff 0%,
-              #ffffff 50%,
-              #8b31ff 51%,
-              #7000ff 100%
-            );
-            background-size: 200% 100%;
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+.js-tilt-glare {
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
 
-            &:hover {
-              background-position: 100% 0;
-            }
-          }
-        }
-      }
-    }
-  }
+.js-tilt-glare-inner {
+  border-radius: 1.5rem;
 }
 
 .progress {
@@ -295,7 +239,7 @@ input[type="checkbox"] {
     transform-origin: left;
     will-change: transform;
     transform: scaleX(0);
-    @apply w-full bg-white;
+    @apply w-full bg-indigo-dark dark:bg-white;
   }
 }
 
@@ -305,6 +249,34 @@ input[type="checkbox"] {
     theme("colors.indigo.light"),
     theme("colors.indigo.dark")
   );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-interactive {
+  background: linear-gradient(
+    90deg,
+    theme("colors.gray.dark.1") 0%,
+    theme("colors.gray.dark.1") 50%,
+    theme("colors.purple") 51%,
+    theme("colors.indigo.dark") 100%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dark .text-gradient-interactive {
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #ffffff 50%,
+    theme("colors.purple") 51%,
+    theme("colors.indigo.dark") 100%
+  );
+  background-size: 200% 100%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -371,7 +343,7 @@ $bg: #f4faff;
             &:hover {
               &:before {
                 content: "";
-                box-shadow: 0 0 0 5px rgba(#7000ff, 0.5);
+                box-shadow: 0 0 0 5px rgba(49, 54, 255, 0.5);
               }
             }
             &:before {
@@ -379,7 +351,7 @@ $bg: #f4faff;
               position: absolute;
               width: 16px;
               height: 16px;
-              outline: 3px solid #7000ff;
+              outline: 3px solid theme("colors.indigo.dark");
               border-radius: 50%;
               left: 0;
               top: 20%;

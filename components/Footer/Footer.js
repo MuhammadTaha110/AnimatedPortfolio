@@ -5,10 +5,12 @@ import { Howl } from "howler";
 import Button from "../Button/Button";
 import FooterBg from "./FooterBg/FooterBg";
 import Profiles from "../Profiles/Profiles";
+import { useTheme } from "@/context/ThemeContext";
 import { theme } from "tailwind.config";
 import { MENULINKS } from "../../constants";
 
 const Footer = () => {
+  const { isDark } = useTheme();
   const [playbackRate, setPlaybackRate] = useState(0.75);
 
   const heartClickSound = new Howl({
@@ -32,11 +34,11 @@ const Footer = () => {
       <FooterBg />
       <Fade bottom distance={"4rem"}>
         <div className="w-full h-full pt-32">
-          <div className="section-container flex flex-col h-full justify-end z-10 items-center py-12">
-            <h1 className="font-medium text-3xl md:text-4xl text-center seq">
+          <div className="section-container z-10 flex h-full flex-col items-center justify-end py-12">
+            <h1 className="seq text-center text-3xl font-medium text-white md:text-4xl">
               Feel free to connect on social media.
             </h1>
-            <div className="text-center seq">
+            <div className="seq text-center [&_a]:border-white/40 [&_a]:bg-white/15 [&_svg]:stroke-white">
               <Profiles />
             </div>
             <div className="seq pt-4 text-center">
@@ -48,23 +50,39 @@ const Footer = () => {
                 Let&apos;s Talk
               </Button>
             </div>
-            <p className="text-center text-white text-sm sm:text-base font-medium tracking-wide mt-8">
-              Developed with{" "}
-              <button onClick={handleClick} className="link cursor-none">
-                <span className="block animate-bounce">❤️</span>
-              </button>{" "}
-              by <span className="text-white">M Babar Waseem</span>
-            </p>
           </div>
         </div>
       </Fade>
-      <img
-        src="/footer-curve.svg"
-        className="w-full rotate-180"
-        alt=""
-        loading="eager"
-        height={180}
-      />
+      <div className="bg-white px-4 py-10 dark:bg-black">
+        <div className="section-container flex flex-col items-center">
+          <div className="seq mb-6 flex justify-center">
+            <img
+              src={isDark ? "/darkmodelogo.png.png" : "/lightmodelogo.png"}
+              alt="Muhammad Taha Talib"
+              className="h-20 w-auto max-w-[280px] object-contain"
+            />
+          </div>
+          <p className="seq text-center text-sm font-medium tracking-wide text-gray-dark-1 dark:text-white sm:text-base">
+            Developed with{" "}
+            <button onClick={handleClick} className="link cursor-none">
+              <span className="block animate-bounce">❤️</span>
+            </button>{" "}
+            by{" "}
+            <span className="text-gray-dark-1 dark:text-white">
+              Muhammad Taha Talib
+            </span>
+          </p>
+        </div>
+      </div>
+      <div className="bg-white dark:bg-black">
+        <img
+          src="/footer-curve.svg"
+          className="w-full rotate-180"
+          alt=""
+          loading="eager"
+          height={180}
+        />
+      </div>
     </footer>
   );
 };
