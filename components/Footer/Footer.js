@@ -4,6 +4,7 @@ import { Fade } from "react-reveal";
 import { Howl } from "howler";
 import Button from "../Button/Button";
 import FooterBg from "./FooterBg/FooterBg";
+import FooterCurve from "./FooterCurve/FooterCurve";
 import Profiles from "../Profiles/Profiles";
 import { useTheme } from "@/context/ThemeContext";
 import { theme } from "tailwind.config";
@@ -25,34 +26,37 @@ const Footer = () => {
   };
 
   return (
-    <footer
-      className="w-full relative select-none bg-cover"
-      style={{
-        backgroundImage: `linear-gradient(to right, ${theme.colors.indigo.light}, ${theme.colors.indigo.dark})`,
-      }}
-    >
-      <FooterBg />
-      <Fade bottom distance={"4rem"}>
-        <div className="w-full h-full pt-32">
-          <div className="section-container z-10 flex h-full flex-col items-center justify-end py-12">
-            <h1 className="seq text-center text-3xl font-medium text-white md:text-4xl">
-              Feel free to connect on social media.
-            </h1>
-            <div className="seq text-center [&_a]:border-white/40 [&_a]:bg-white/15 [&_svg]:stroke-white">
-              <Profiles />
-            </div>
-            <div className="seq pt-4 text-center">
-              <Button
-                href={`#${MENULINKS[4].ref}`}
-                classes="link"
-                type="secondary"
-              >
-                Let&apos;s Talk
-              </Button>
+    <footer className="relative w-full select-none">
+      <div
+        className="w-full bg-cover"
+        style={{
+          backgroundImage: `linear-gradient(to right, ${theme.colors.indigo.light}, ${theme.colors.indigo.dark})`,
+        }}
+      >
+        <FooterBg />
+        <Fade bottom distance={"4rem"}>
+          <div className="w-full pt-32">
+            <div className="section-container z-10 flex flex-col items-center justify-end py-12">
+              <h1 className="seq text-center text-3xl font-medium text-white md:text-4xl">
+                Feel free to connect on social media.
+              </h1>
+              <div className="seq text-center [&_a]:border-white/40 [&_a]:bg-white/15 [&_svg]:stroke-white">
+                <Profiles />
+              </div>
+              <div className="seq pt-4 text-center">
+                <Button
+                  href={`#${MENULINKS[4].ref}`}
+                  classes="link"
+                  type="secondary"
+                >
+                  Let&apos;s Talk
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
-      </Fade>
+        </Fade>
+        <FooterCurve />
+      </div>
       <div className="bg-white px-4 py-10 dark:bg-black">
         <div className="section-container flex flex-col items-center">
           <div className="seq mb-6 flex justify-center">
@@ -73,15 +77,6 @@ const Footer = () => {
             </span>
           </p>
         </div>
-      </div>
-      <div className="bg-white dark:bg-black">
-        <img
-          src="/footer-curve.svg"
-          className="w-full rotate-180"
-          alt=""
-          loading="eager"
-          height={180}
-        />
       </div>
     </footer>
   );
