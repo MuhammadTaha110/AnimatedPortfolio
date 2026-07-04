@@ -2,54 +2,65 @@
   position: relative;
   display: flex;
   align-items: flex-start;
-  padding-top: 4.25rem;
+  padding-top: 3.25rem;
   padding-bottom: 3rem;
   overflow: hidden;
 
   @media (min-width: 640px) {
-    padding-top: 4.75rem;
+    padding-top: 3.5rem;
   }
 
   @media (min-width: 768px) {
-    padding-top: 5rem;
+    padding-top: 3.75rem;
   }
 }
 
 .watermark {
   position: absolute;
-  top: 85%;
+  top: 88%;
   right: 2rem;
   z-index: 0;
   margin: 0;
-  pointer-events: none;
+  pointer-events: auto;
+  cursor: none;
   user-select: none;
   white-space: nowrap;
   font-size: clamp(2.5rem, 5vw, 4.5rem);
   font-weight: 700;
   letter-spacing: 0.04em;
   line-height: 1;
-  color: theme("colors.gray.dark.1");
-  opacity: 0.06;
   transform: translateY(-50%) rotate(90deg);
   transform-origin: center right;
 
-  :global(.dark) & {
-    color: theme("colors.white");
-    opacity: 0.08;
-  }
-
   @media (min-width: 768px) {
     right: 3rem;
-    opacity: 0.07;
-
-    :global(.dark) & {
-      opacity: 0.1;
-    }
   }
 
   @media (min-width: 1024px) {
     right: 4.5rem;
     font-size: clamp(3rem, 4vw, 5rem);
+  }
+}
+
+.watermarkChar {
+  display: inline-block;
+  padding: 0.04em 0.02em;
+  color: theme("colors.gray.dark.1");
+  opacity: 0.08;
+  transition: color 0.2s ease, opacity 0.2s ease;
+
+  :global(.dark) & {
+    color: theme("colors.white");
+    opacity: 0.1;
+  }
+
+  &:hover {
+    opacity: 1;
+    color: theme("colors.purple");
+
+    :global(.dark) & {
+      color: theme("colors.indigo.light");
+    }
   }
 }
 

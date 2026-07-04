@@ -190,7 +190,8 @@ export const WORK_CONTENTS = {
       content: (
         <WorkLogoPanel
           href="https://geeksofkolachi.com/"
-          logoSrc="/work/geeksofkolachi.png"
+          logoSrcLight="/work/geeksofkolachi-light.png"
+          logoSrcDark="/work/geeksofkolachi-dark.png"
           logoAlt="Geeks of Kolachi"
           label="geeksofkolachi.com"
         />

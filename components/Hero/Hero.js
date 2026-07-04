@@ -18,6 +18,8 @@ const typedOptions = {
   cursorChar: "|",
 };
 
+const WATERMARK_TEXT = "Software Engineer";
+
 const Hero = () => {
   const sectionRef = useRef(null);
   const typedElementRef = useRef(null);
@@ -51,7 +53,11 @@ const Hero = () => {
       style={{ opacity: 0 }}
     >
       <p className={styles.watermark} aria-hidden="true">
-        Software Engineer
+        {WATERMARK_TEXT.split("").map((char, index) => (
+          <span key={`watermark-${index}`} className={styles.watermarkChar}>
+            {char === " " ? "\u00A0" : char}
+          </span>
+        ))}
       </p>
       <div className={styles.grid}>
         <div className={styles.leftColumn}>
