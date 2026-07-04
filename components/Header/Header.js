@@ -57,7 +57,7 @@ const Header = () => {
     <>
       <Menu isOpen={isMenuOpen} onClose={closeMenu} />
 
-      <nav className="relative w-full fixed top-0 z-[250] select-none bg-gradient-to-b from-gray-light-1/95 to-transparent py-4 dark:from-black dark:to-transparent transition-all duration-300">
+      <nav className="relative w-full fixed top-0 z-[250] select-none bg-gradient-to-b from-gray-light-1/95 to-transparent pt-4 dark:from-black dark:to-transparent transition-all duration-300">
         <div className="flex justify-between items-center section-container">
           <a href="#home" className="link relative z-[210] shrink-0">
             <Image

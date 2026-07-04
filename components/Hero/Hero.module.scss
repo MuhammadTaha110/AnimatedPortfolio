@@ -1,15 +1,61 @@
 .hero {
+  position: relative;
   display: flex;
   align-items: flex-start;
-  padding-top: 5rem;
+  padding-top: 4.25rem;
   padding-bottom: 3rem;
+  overflow: hidden;
+
+  @media (min-width: 640px) {
+    padding-top: 4.75rem;
+  }
 
   @media (min-width: 768px) {
-    padding-top: 5.25rem;
+    padding-top: 5rem;
+  }
+}
+
+.watermark {
+  position: absolute;
+  top: 85%;
+  right: 2rem;
+  z-index: 0;
+  margin: 0;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  color: theme("colors.gray.dark.1");
+  opacity: 0.06;
+  transform: translateY(-50%) rotate(90deg);
+  transform-origin: center right;
+
+  :global(.dark) & {
+    color: theme("colors.white");
+    opacity: 0.08;
+  }
+
+  @media (min-width: 768px) {
+    right: 3rem;
+    opacity: 0.07;
+
+    :global(.dark) & {
+      opacity: 0.1;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    right: 4.5rem;
+    font-size: clamp(3rem, 4vw, 5rem);
   }
 }
 
 .grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   width: 100%;
   gap: 2rem;
@@ -113,6 +159,39 @@
 
 .headingIntro {
   display: block;
+}
+
+.emphasize {
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: calc(100% + 0.01em);
+    bottom: auto;
+    left: 0;
+    width: 98%;
+    height: 0.35rem;
+    border-radius: 1rem;
+    background-image: linear-gradient(
+      to right,
+      theme("colors.indigo.light"),
+      theme("colors.purple")
+    );
+    box-shadow: 0 0 0.75rem theme("colors.indigo.dark");
+    animation: growHorizontal 1.3s cubic-bezier(0.9, 0, 0.5, 0.9) 0.8s both;
+  }
+}
+
+@keyframes growHorizontal {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 98%;
+  }
 }
 
 .roleLine {

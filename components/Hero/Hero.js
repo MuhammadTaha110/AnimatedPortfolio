@@ -50,10 +50,17 @@ const Hero = () => {
       className={`${styles.hero} relative mx-auto mb-12 w-full px-4 md:mb-20 md:px-12 xl:px-20 2xl:container`}
       style={{ opacity: 0 }}
     >
+      <p className={styles.watermark} aria-hidden="true">
+        Software Engineer
+      </p>
       <div className={styles.grid}>
         <div className={styles.leftColumn}>
           <h1 className={`${styles.heading} staggered-reveal text-gray-dark-1 dark:text-white`}>
-            <span className={styles.headingIntro}>I&apos;m Muhammad,</span>
+            <span className={styles.headingIntro}>
+           I&apos;m
+           Muhammad{" "}
+              <span className={styles.emphasize}>Taha</span> Talib,
+            </span>
             <span className={styles.roleLine}>
               a{" "}
               <span
