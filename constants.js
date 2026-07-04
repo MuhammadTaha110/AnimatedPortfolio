@@ -45,12 +45,24 @@ export const MENULINKS = [
   },
 ];
 
+export const CV_URL = "/Muhammad_Taha_Talib_CV.pdf";
+
+export const HERO_EDUCATION = {
+  degree: "BS Computer Science — CGPA 3.66/4.0",
+  institution: "SZABIST, Karachi",
+  period: "2022 – 2026",
+  focus:
+    "Core focus: Software Engineering, Database Systems, Web Application Architecture.",
+  capstone:
+    "Capstone (TestHub): Conceived and architected a global platform for software testers to collaborate and share testing methodologies.",
+};
+
 export const TYPED_STRINGS = [
-  "I ship production Next.js & React apps",
   "Founder & Lead Architect of TestHub",
-  "Focused on clean component architecture",
-  "2+ years building scalable full-stack products",
-  "Winner of two frontend hackathons at Zab-E-Fest",
+  "Full-Stack Software Engineer",
+  "Next.js & React Developer",
+  "clean architecture enthusiast",
+  "Zab-E-Fest hackathon winner",
 ];
 
 export const SOCIAL_LINKS = [
