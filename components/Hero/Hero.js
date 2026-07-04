@@ -10,9 +10,12 @@ const options = {
   strings: TYPED_STRINGS,
   typeSpeed: 50,
   startDelay: 1500,
-  backSpeed: 50,
-  backDelay: 8000,
+  backSpeed: 40,
+  backDelay: 6000,
   loop: true,
+  contentType: null,
+  smartBackspace: true,
+  showCursor: true,
 };
 
 const Hero = () => {

@@ -1,4 +1,4 @@
-import { calibre, jetbrains_mono } from "public/fonts";
+import { poppins } from "public/fonts";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Meta from "@/components/Meta/Meta";
 import { ThemeProvider } from "@/context/ThemeContext";
@@ -11,7 +11,7 @@ const App = ({ Component, pageProps }) => {
       <Meta />
       <ThemeProvider>
         <main
-          className={`${calibre.variable} font-sans ${jetbrains_mono.variable} font-mono`}
+          className={`${poppins.variable} font-sans`}
         >
           <Component {...pageProps} />
           <GoogleAnalytics gaId="GTM-59XN3PF4" />

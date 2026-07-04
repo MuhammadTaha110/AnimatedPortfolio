@@ -15,7 +15,7 @@ const toastOptions = {
     borderRadius: "10px",
     background: "#333",
     color: "#fff",
-    fontFamily: "sans-serif",
+    fontFamily: "var(--font-poppins), sans-serif",
   },
 };
 

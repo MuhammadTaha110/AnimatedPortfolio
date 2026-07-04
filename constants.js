@@ -6,7 +6,7 @@ export const METADATA = {
   title: "Portfolio | Muhammad Taha Talib",
   description:
     "Muhammad Taha Talib is a Full-Stack Software Engineer with 2+ years shipping production Next.js/React/TypeScript applications and Node.js backends. Founder & Lead Architect of TestHub.",
-  siteUrl: "https://github.com/mtahatalib",
+  siteUrl: "https://github.com/MuhammadTaha110",
   keywords: [
     "Muhammad Taha Talib",
     "Full-Stack Software Engineer",
@@ -64,7 +64,7 @@ export const SOCIAL_LINKS = [
   },
   {
     name: "github",
-    url: "https://github.com/mtahatalib",
+    url: "https://github.com/MuhammadTaha110",
   },
 ];
 

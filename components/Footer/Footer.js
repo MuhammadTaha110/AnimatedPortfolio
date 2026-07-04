@@ -40,7 +40,7 @@ const Footer = () => {
               <h1 className="seq text-center text-3xl font-medium text-white md:text-4xl">
                 Feel free to connect on social media.
               </h1>
-              <div className="seq text-center [&_a]:border-white/40 [&_a]:bg-white/15 [&_svg]:stroke-white">
+              <div className="seq text-center [&_a]:border-white/40 [&_a]:bg-white/15 [&_a]:text-white [&_svg]:stroke-white">
                 <Profiles />
               </div>
               <div className="seq pt-4 text-center">

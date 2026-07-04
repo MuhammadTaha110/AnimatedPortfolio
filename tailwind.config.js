@@ -37,8 +37,8 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ["var(--font-calibre)"],
-      mono: ["var(--font-jetbrains-mono)"],
+      sans: ["var(--font-poppins)", ...defaultTheme.fontFamily.sans],
+      mono: ["var(--font-poppins)", ...defaultTheme.fontFamily.mono],
     },
     extend: {
       animation: {
